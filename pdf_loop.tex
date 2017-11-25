@@ -1,0 +1,26 @@
+\documentclass{article}% or something else
+\usepackage{pdfpages}
+%\usepackage{graphicx}
+%http://www.matthiaspospiech.de/blog/2008/04/13/latex-variablen-if-abfragen-und-schleifen/
+%\usepackage{ifthen}
+\usepackage{forloop} 
+
+
+\newcounter{pages}
+\setcounter{pages}{5}
+\stepcounter{pages}
+\newcounter{front}
+\newcounter{back}
+
+\begin{document}
+
+\forloop{front}{1}{\value{front} < \value{pages}}
+{
+	\setcounter{back}{\value{pages}-\value{front}}
+	%\arabic{front}
+	%\arabic{back}
+	\includepdf[pages=\thefront]{scan0018.pdf}
+	\includepdf[pages=\theback]{scan0019.pdf}
+}
+
+\end{document}
